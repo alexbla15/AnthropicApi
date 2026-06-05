@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, type FormEvent } from 'react'
 import styles from '../styles/Chat.module.css'
 
 interface Message {
@@ -34,7 +34,7 @@ export default function Chat({ messages, loading, error, onSendMessage }: ChatPr
     scrollToBottom()
   }, [messages])
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (input.trim() && !loading) {
       onSendMessage(input)
